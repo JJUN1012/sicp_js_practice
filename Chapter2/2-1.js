@@ -7,7 +7,14 @@ function make_rat(n, d){
     return pair(n/g, d/g);
 }
 
-make_rat(10, 2);
-make_rat(-10, 2);
-make_rat(-10, -2);
-make_rat(10, -2);
+const rat1 = make_rat(10, -2);
+
+
+function numer(x){ return head(x); }
+function denom(x){ return tail(x); }
+
+function print_rat(x){
+    return display(stringify(numer(x)) + " / " +stringify(denom(x)));
+}
+
+print_rat(rat1);
