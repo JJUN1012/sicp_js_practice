@@ -5,7 +5,7 @@ function map(fun, items){ //List mapping function(p.172)
 			  map(fun, tail(items)));
 }
 
-function filter (precdicate, sequence){
+function filter (predicate, sequence){
 	return is_null(sequence)
 		? null
 		: predicate(head(sequence))
@@ -20,4 +20,4 @@ function is_odd(number){
         :true;
 }
 
-filter(is_odd, list(1,2,3,4,5));
+filter(x => x % 2 === 1, list(1,2,3,4,5));
