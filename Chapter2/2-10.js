@@ -1,7 +1,7 @@
-function make_interval(x, y){ return pair(x, y);};
+function make_interval(x, y){ return pair(x, y);}
 
-function upper_bound(interval){return head(interval);};
-function lower_bound(interval){return tail(interval);};
+function upper_bound(interval){return head(interval);}
+function lower_bound(interval){return tail(interval);}
 
 function mul_interval(x, y) {
     const p1 = lower_bound(x) * lower_bound(y);
@@ -14,7 +14,14 @@ function mul_interval(x, y) {
 
 function div_interval(x, y){
     return upper_bound(y) >= 0 && lower_bound(y) <= 0
-        ? error("divisional interval makes error")
+        ? error("dividing interval makes error")
         : mul_interval(x, make_interval(1/upper_bound(y),
                                         1/lower_bound(y)));
 }
+
+function display_interval(interval){
+    return "[" + stringify(lower_bound(interval)) + ", "
+        + stringify(upper_bound(interval)) + "]";
+}
+
+display_interval(div_interval(make_interval(10, 34), make_interval(2, 8)));
