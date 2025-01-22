@@ -1,7 +1,7 @@
 function make_interval(x, y){ return pair(x, y);}
 
-function upper_bound(interval){return head(interval);}
-function lower_bound(interval){return tail(interval);}
+function lower_bound(interval){return head(interval);}
+function upper_bound(interval){return tail(interval);}
 
 function mul_interval(x, y) {
     const p1 = lower_bound(x) * lower_bound(y);
