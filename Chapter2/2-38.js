@@ -26,5 +26,5 @@ function times(x, y){return x * y;}
 
 display(fold_right(plus, 0, list(1, 2, 3))); 
 display(fold_left(plus, 0, list(1, 2, 3))); 
-display_list(fold_right(times, 1, list(1, 2, 3)));
-display_list(fold_left(times, 1, list(1, 2, 3)));
+display_list(fold_right(times, 1, list(3, 4, 5)));
+display_list(fold_left(times, 1, list(3, 4, 5)));
