@@ -14,7 +14,7 @@ function plus(x, y) {
 function unique_triples(n){
     return flatmap(x => 
                 flatmap(y => 
-                    map(z => list(x, y, z) ,enumerate_interval(y + 1, n)),
+                    map(z => list(x, y, z), enumerate_interval(y + 1, n)),
                 enumerate_interval(x + 1, n - 1)),
            enumerate_interval(1, n - 2));
 }
