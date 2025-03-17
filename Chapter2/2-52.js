@@ -1,4 +1,8 @@
-import { heart, stack, beside, show } from 'rune';
+import { heart, stack, turn_upside_down, beside, flip_vert, flip_horiz, show } from 'rune';
+
+function identity(x){
+    return x;
+}
 
 function split(func1, func2){
     function split_recursion(painter, n){
@@ -30,4 +34,18 @@ function corner_split(painter, n){
     }
 }
 
-show(corner_split(heart, 6));
+function square_of_four(tr, tl, br, bl){
+    return painter => {
+        const top = beside(tl(painter), tr(painter));
+        const bottom = beside(bl(painter), br(painter));
+        return below(bottom, top);
+    };
+}
+
+function square_limit(painter, n) {
+    const combine4 = square_of_four(flip_horiz, identity, 
+                                    turn_upside_down, flip_vert);
+    return combine4(corner_split(painter, n));
+}
+
+show(square_limit(heart, 4));
